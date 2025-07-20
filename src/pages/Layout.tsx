@@ -1,25 +1,26 @@
-import { Link, Outlet } from "react-router-dom";
+// src/components/Layout.tsx
+import { Outlet } from "react-router-dom";
+import Sidebar from "../components/Sidebar";
+
 
 const Layout = () => {
     return (
         <div className="flex h-screen">
-            <div className="w-64 bg-slate-800 text-white flex-shrink-0">
-                <nav className="p-4">
-                    <nav>
-                        {/* Apply padding directly to the ul */}
-                        <ul className="flex flex-col gap-4 p-4">
-                            <li className="hover:bg-gray-700 p-2 rounded">
-                                <Link to="/dashboard">Dashboard</Link>
-                            </li>
-                            <li className="hover:bg-gray-700 p-2 rounded">
-                                <Link to="/">Home</Link>
-                            </li>
-                        </ul>
-                    </nav>
-                </nav>
-            </div>
-            <div className="flex-1 p-6 bg-gray-100 overflow-y-auto">
-                <Outlet />
+            <Sidebar />
+            <div className="ml-64 flex-1 flex flex-col">
+                {/* Top Navbar */}
+                <header className="h-16 bg-white shadow flex items-center justify-between px-6 sticky top-0 z-10">
+                    <div className="text-xl font-semibold">MyApp</div>
+                    <div className="flex items-center gap-4">
+                        <button className="text-gray-600 hover:text-black">Settings</button>
+                        <button className="text-gray-600 hover:text-black">Logout</button>
+                    </div>
+                </header>
+
+                {/* Page Content */}
+                <main className="flex-1 p-6 bg-gray-100 overflow-auto">
+                    <Outlet />
+                </main>
             </div>
         </div>
     );

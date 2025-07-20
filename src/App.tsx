@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import Blogs from './pages/Blogs';
 import Layout from './pages/Layout';
 import Settings from './pages/Settings';
+import Orders from './pages/Orders';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="dashboard" element={<Blogs />} />
           <Route path="settings" element={<Settings />} />
+          <Route path="orders/all" element={<Orders />} />
         </Route>
       </Routes>
     </BrowserRouter>
